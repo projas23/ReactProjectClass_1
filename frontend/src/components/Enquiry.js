@@ -20,7 +20,7 @@ const Enquiry = (props) => {
         try{
            enquiryObject = {...enquiryObject,address:props.address};
            console.log(enquiryObject);
-           let response = await axios.post('http://localhost:4000/addenquiry',{...enquiryObject});
+           let response = await axios.post(process.env.REACT_APP_BACKEND_URL+"addenquiry",{...enquiryObject});
            console.log(response.data);
            console.log(" enquiry submitted");
            setsubmittedEnquiry(true);

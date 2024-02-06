@@ -19,7 +19,7 @@ const Login = () => {
     const submitHandler = async (e) => {
         e.preventDefault();
         try {
-            let response = await axios.post('http://localhost:4000/login', { email, password });
+            let response = await axios.post(process.env.REACT_APP_BACKEND_URL+"login", { email, password });
             if (response.data.length > 0) {
                 sessionStorage.setItem("name", response.data[0].name);
                 sessionStorage.setItem("email", response.data[0].email);
